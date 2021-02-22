@@ -1,0 +1,15 @@
+<mat-card class="mat-elevation-z8">
+  <div class="table-container">
+    <table
+      class="card-table"
+      mat-table
+      [dataSource]="cards"
+      *ngIf="!loadingCards && !loadingError"
+    >
+      <ng-container matColumnDef="serial">
+        <th mat-header-cell *matHeaderCallDef>Serial</th>
+        <td mat-cell *matCellDef="let i = index">{{ getSerialNumberForCard(cards[i]) }}</td>
+      </ng-container>
+    </table>
+  </div>
+</mat-card>
