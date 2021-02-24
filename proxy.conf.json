@@ -1,0 +1,10 @@
+{
+  "/ygo-card-processor/*": {
+    "target": "http://192.168.1.15:32243",
+    "secure": "false",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/ygo-card-processor": ""
+    }
+  }
+}

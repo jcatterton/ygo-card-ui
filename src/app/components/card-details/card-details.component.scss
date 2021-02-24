@@ -1,0 +1,67 @@
+.details-wrapper {
+  width: 60%;
+  margin: 0 auto !important;
+}
+
+.card-image {
+  width: 25%;
+}
+
+.details {
+  display: flex;
+}
+
+.basic-info {
+  margin-left: 5%;
+  font-size: 31px;
+  width: 100%;
+}
+
+.info-table {
+  width: 100%;
+}
+
+.column-one {
+  width: 30%;
+}
+
+.description {
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  font-size: 25px;
+  border-top: 1px lightgray solid;
+  border-bottom: 1px lightgray solid;
+}
+
+.price-table {
+  width: 100%;
+  font-size: 20px;
+}
+
+.label-column {
+  width: 16%;
+}
+
+.unlimited-column {
+  width: 28%;
+}
+
+.limited-column {
+  width: 28%;
+}
+
+.first-edition-column {
+  width: 28%;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+  button {
+    width: 250px;
+  }
+}

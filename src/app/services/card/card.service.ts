@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from "../http/http.service";
-import { Card } from "../../models/card.model";
+import { CardWithPriceInfo } from "../../models/card.model";
 import { Observable } from "rxjs";
 
 @Injectable({
@@ -8,23 +8,27 @@ import { Observable } from "rxjs";
 })
 
 export class CardService {
-  readonly baseURL = "192.168.1.15:32243";
+  readonly baseURL = "ygo-card-processor";
 
   constructor(private http: HttpService) { }
 
-  getCards(): Observable<Card[]> {
-    return this.http.get<Card[]>(`${this.baseURL}/cards`);
+  getCards(): Observable<CardWithPriceInfo[]> {
+    return this.http.get<CardWithPriceInfo[]>(`${this.baseURL}/cards`);
   }
 
-  getCardById(id: number): Observable<Card> {
-    return this.http.get<Card>(`${this.baseURL}/card/${id}`)
+  getCardById(id: number): Observable<CardWithPriceInfo> {
+    return this.http.get<CardWithPriceInfo>(`${this.baseURL}/card/${id}`)
   }
 
-  processCard() {
+  processCards() {
     return this.http.post(`${this.baseURL}/process`, null);
   }
 
-  deleteCard(id: number) {
-    return this.http.delete(`${this.baseURL}/card/${id}`);
+  deleteCard(serial: string) {
+    return this.http.delete(`${this.baseURL}/card/${serial}`);
+  }
+
+  addCard(serial: string) {
+    return this.http.post(`${this.baseURL}/card/${serial}`, null);
   }
 }

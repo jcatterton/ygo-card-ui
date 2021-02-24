@@ -1,0 +1,33 @@
+img {
+  width: 200px;
+}
+
+.wrapper {
+  width: 100%;
+  display: flex;
+}
+
+.left-side {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h2 {
+    font-family: sans-serif;
+  }
+
+  .buttons {
+    width: 75%;
+
+    button {
+      width: 50%;
+    }
+  }
+}
+
+.right-side {
+  width: 50%;
+  text-align: center;
+}

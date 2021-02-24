@@ -1,0 +1,87 @@
+<mat-card class="mat-elevation-z8 details-wrapper" *ngIf="!loadingCard">
+  <div class="buttons">
+    <button
+      mat-stroked-button
+      class="back-to-table-button"
+      (click)="returnToTable()"
+    ><mat-icon matPrfix>keyboard_backspace</mat-icon> Return to Card Table</button>
+    <button
+      mat-stroked-button
+      class="delete-button"
+      (click)="deleteCard()"
+    ><mat-icon matPrefix>delete</mat-icon>Delete Card</button>
+  </div>
+  <div class="details">
+    <img class="card-image" src="{{ card.card.imageUrl }}">
+    <div class="basic-info">
+      <table class="info-table">
+        <tr #nameRow>
+          <td class="column-one">Name:</td>
+          <td class="column-two">{{ card.card.name }}</td>
+        </tr>
+        <tr #serialRow>
+          <td class="column-one">Serial:</td>
+          <td class="column-two">{{ extendedData?.get("Number") }}</td>
+        </tr>
+        <tr #cardType>
+          <td class="column-one">Serial:</td>
+          <td class="column-two">{{ extendedData?.get("Card Type") }}</td>
+        </tr>
+        <tr #attack *ngIf="extendedData?.get('MonsterType') !== undefined">
+          <td class="column-one">Attack:</td>
+          <td class="column-two">{{ extendedData?.get("Attack") }}</td>
+        </tr>
+        <tr #defense *ngIf="extendedData?.get('MonsterType') !== undefined">
+          <td class="column-one">Defense:</td>
+          <td class="column-two">{{ extendedData?.get("Defense") }}</td>
+        </tr>
+        <tr #type *ngIf="extendedData?.get('MonsterType') !== undefined">
+          <td class="column-one">Type:</td>
+          <td class="column-two">{{ extendedData?.get("MonsterType") }}</td>
+        </tr>
+        <tr #attribute *ngIf="extendedData?.get('MonsterType') !== undefined">
+          <td class="column-one">Attribute:</td>
+          <td class="column-two">{{ extendedData?.get("Attribute") }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="description">
+    <span>{{ trimCardDescription(extendedData?.get("Description")) }}</span>
+  </div>
+  <table class="price-table">
+    <tr #headerRow>
+      <td class="label-column"></td>
+      <td class="unlimited-column">{{ "Unlimited" }}</td>
+      <td class="limited-column">{{ "Limited Edition" }}</td>
+      <td class="first-edition-column">{{ "1st Edition" }}</td>
+    </tr>
+    <tr #lowestPriceRow>
+      <td class="label-column">Lowest Price</td>
+      <td class="unlimited-column">{{ priceData?.get("Unlimited")?.lowPrice | currency}}</td>
+      <td class="limited-column">{{ priceData?.get("Limited")?.lowPrice | currency }}</td>
+      <td class="first-edition-column">{{ priceData?.get("1st Edition")?.lowPrice }}</td>
+    </tr>
+    <tr #midPriceRow>
+      <td class="label-column">Mid Price</td>
+      <td class="unlimited-column">{{ priceData?.get("Unlimited")?.midPrice | currency}}</td>
+      <td class="limited-column">{{ priceData?.get("Limited")?.midPrice | currency }}</td>
+      <td class="first-edition-column">{{ priceData?.get("1st Edition")?.midPrice }}</td>
+    </tr>
+    <tr #highPriceRow>
+      <td class="label-column">Mid Price</td>
+      <td class="unlimited-column">{{ priceData?.get("Unlimited")?.highPrice | currency}}</td>
+      <td class="limited-column">{{ priceData?.get("Limited")?.highPrice | currency }}</td>
+      <td class="first-edition-column">{{ priceData?.get("1st Edition")?.highPrice }}</td>
+    </tr>
+    <tr #marketPrice>
+      <td class="label-column">Mid Price</td>
+      <td class="unlimited-column">{{ priceData?.get("Unlimited")?.marketPrice | currency}}</td>
+      <td class="limited-column">{{ priceData?.get("Limited")?.marketPrice | currency }}</td>
+      <td class="first-edition-column">{{ priceData?.get("1st Edition")?.marketPrice }}</td>
+    </tr>
+  </table>
+</mat-card>
+<div *ngIf="loadingCard">
+  <app-spinner [loadValue]="'Loading card data'"></app-spinner>
+</div>

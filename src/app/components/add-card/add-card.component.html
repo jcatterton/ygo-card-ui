@@ -1,0 +1,16 @@
+<div class="wrapper">
+  <div class="left-side">
+    <h2>Enter card serial number</h2>
+    <mat-form-field appearance="fill" [formGroup]="form">
+      <mat-label>Serial Number</mat-label>
+      <input matInput formControlName="serial">
+    </mat-form-field>
+    <div class="buttons">
+      <button mat-stroked-button class="close-dialog" (click)="cancel()">Cancel</button>
+      <button mat-stroked-button class="add-card" (click)="saveCard()">Save</button>
+    </div>
+  </div>
+  <div class="right-side">
+    <img src="https://external-preview.redd.it/sHcJvB6jBmKbOq57Jr_XdQxaB6SEEzqfXqstm5o-h0o.png?auto=webp&s=b1aea673cee61e855e156f03abef97cafbdcca0c">
+  </div>
+</div>

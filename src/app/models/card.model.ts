@@ -1,5 +1,5 @@
-export class Card {
-  cardInfo: CardInfo;
+export class CardWithPriceInfo {
+  card: CardInfo;
   priceInfo: PriceInfo[];
 }
 

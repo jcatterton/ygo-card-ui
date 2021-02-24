@@ -1,6 +1,9 @@
 import { Observable, of } from "rxjs";
-import { Card } from "../models/card.model";
+import { CardWithPriceInfo } from "../models/card.model";
 import { MockCard } from "./card";
+import { SnackBarPanelClass } from "../services/snackbar/snackbar.service";
+import { ComponentType } from "@angular/cdk/portal";
+import { MatDialogConfig } from "@angular/material/dialog";
 
 export class MockHttpService {
   get<T>(url: string): Observable<any> {
@@ -17,7 +20,37 @@ export class MockHttpService {
 }
 
 export class MockCardService {
-  getCards(): Observable<Card[]> {
+  getCards(): Observable<CardWithPriceInfo[]> {
     return of(MockCard.mockCards);
+  }
+
+  getCardById(id: number): Observable<CardWithPriceInfo> {
+    return of(MockCard.mockCard1);
+  }
+
+  processCards() {
+    return of(null)
+  }
+
+  deleteCard(serial: string) {
+    return of(null)
+  }
+
+  addCard(serial: string) {
+    return of(null)
+  }
+}
+
+export class MockSnackBarService {
+  showMessage(msg: string, panelClass: SnackBarPanelClass) {}
+}
+
+export class MockMatDialog {
+  open(component: ComponentType<any>, config?: MatDialogConfig) {
+    return {
+      afterClosed() {
+        return of({});
+      }
+    };
   }
 }
