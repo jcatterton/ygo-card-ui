@@ -1,5 +1,7 @@
-/*import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ConfirmationDialogComponent } from './confirmation-dialog.component';
+import {MatDialogRef} from "@angular/material";
+import {MockMatDialog} from "../../mocks/services";
 
 describe('ConfirmationDialogComponent', () => {
   let component: ConfirmationDialogComponent;
@@ -7,7 +9,12 @@ describe('ConfirmationDialogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ConfirmationDialogComponent ]
+      declarations: [
+        ConfirmationDialogComponent
+      ],
+      providers: [
+        { provide: MatDialogRef, useClass: MockMatDialog }
+      ]
     })
     .compileComponents();
   });
@@ -21,4 +28,12 @@ describe('ConfirmationDialogComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});*/
+
+  describe("close", () => {
+    it("should close dialogRef", () => {
+      const closeSpy = spyOn(component["dialogRef"], "close");
+      component.close(true);
+      expect(closeSpy).toHaveBeenCalledWith(true);
+    });
+  });
+});

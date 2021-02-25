@@ -1,4 +1,4 @@
-/*import { TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { CardService } from './card.service';
 import { HttpService } from "../http/http.service";
 import { MockHttpService } from "../../mocks/services";
@@ -26,7 +26,7 @@ describe('CardService', () => {
     it("should call http get", () => {
       const httpSpy = spyOn(http, "get");
       service.getCards();
-      expect(httpSpy).toHaveBeenCalled();
+      expect(httpSpy).toHaveBeenCalledWith(`${service.baseURL}/cards`);
     });
   });
 
@@ -34,7 +34,7 @@ describe('CardService', () => {
     it("should call http get", () => {
       const httpSpy = spyOn(http, "get");
       service.getCardById(1);
-      expect(httpSpy).toHaveBeenCalled();
+      expect(httpSpy).toHaveBeenCalledWith(`${service.baseURL}/card/1`);
     });
   });
 
@@ -42,7 +42,7 @@ describe('CardService', () => {
     it("should call http post", () => {
       const httpSpy = spyOn(http, "post");
       service.processCards();
-      expect(httpSpy).toHaveBeenCalled();
+      expect(httpSpy).toHaveBeenCalledWith(`${service.baseURL}/process`, null);
     });
   });
 
@@ -50,7 +50,15 @@ describe('CardService', () => {
     it("should call http delete", () => {
       const httpSpy = spyOn(http, "delete");
       service.deleteCard("test");
-      expect(httpSpy).toHaveBeenCalled();
+      expect(httpSpy).toHaveBeenCalledWith(`${service.baseURL}/card/test`);
     });
   });
-});*/
+
+  describe("addCard", () => {
+    it("shoud call http post", () => {
+      const httpSpy = spyOn(http, "post");
+      service.addCard("test");
+      expect(httpSpy).toHaveBeenCalledWith(`${service.baseURL}/card/test`, null);
+    });
+  });
+});

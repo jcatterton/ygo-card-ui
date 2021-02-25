@@ -4,7 +4,7 @@ export class MockCard {
   static mockCard1: CardWithPriceInfo = {
     card: {
       productId: 1,
-      name: "test",
+      name: "test1",
       cleanName: "test",
       imageUrl: "test",
       categoryId: 1,
@@ -46,7 +46,7 @@ export class MockCard {
   static mockCard2: CardWithPriceInfo = {
     card: {
       productId: 1,
-      name: "test",
+      name: "test2",
       cleanName: "test",
       imageUrl: "test",
       categoryId: 1,
@@ -88,7 +88,7 @@ export class MockCard {
   static mockCard3: CardWithPriceInfo = {
     card: {
       productId: 1,
-      name: "test",
+      name: "test3",
       cleanName: "test",
       imageUrl: "test",
       categoryId: 1,
@@ -122,7 +122,25 @@ export class MockCard {
         highPrice: 1,
         marketPrice: 1,
         directLowPrice: 1,
-        subTypeName: "test",
+        subTypeName: "Unlimited"
+      },
+      {
+        productId: 1,
+        lowPrice: 2,
+        midPrice: 2,
+        highPrice: 2,
+        marketPrice: 2,
+        directLowPrice: 2,
+        subTypeName: "Limited"
+      },
+      {
+        productId: 3,
+        lowPrice: 3,
+        midPrice: 3,
+        highPrice: 3,
+        marketPrice: 3,
+        directLowPrice: 3,
+        subTypeName: "1st Edition"
       }
     ]
   };

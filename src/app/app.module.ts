@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ConfirmationDialogComponent } from "./components/confirmation-dialog/confirmation-dialog.component";
 import { CardDetailsComponent } from "./components/card-details/card-details.component";
 import { OverlayModule } from "@angular/cdk/overlay";
+import {MatTableModule} from "@angular/material";
 
 
 @NgModule({

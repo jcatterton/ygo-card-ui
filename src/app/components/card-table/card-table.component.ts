@@ -94,7 +94,7 @@ export class CardTableComponent implements OnInit {
     this.cardService.processCards().subscribe(() => {
       this.snackBarService.showMessage("Card processing has begun, please allow time for it to complete", SnackBarPanelClass.success);
     }, err => {
-      this.snackBarService.showMessage(`There was an error processing cards: ${err}`, SnackBarPanelClass.success);
+      this.snackBarService.showMessage(`There was an error processing cards: ${err}`, SnackBarPanelClass.fail);
     });
   }
 
