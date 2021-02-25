@@ -1,0 +1,4 @@
+apiVersion: v1
+description: A Helm chart for Kubernetes dpeloyment of the Yu-Gi-Oh Card UI
+name: ygo-card-ui
+version: 1.0.0

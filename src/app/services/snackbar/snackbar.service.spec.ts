@@ -1,6 +1,6 @@
 import {TestBed} from '@angular/core/testing';
 import {SnackBarPanelClass, SnackbarService} from './snackbar.service';
-import {MatSnackBar, MatSnackBarConfig, MatSnackBarModule} from "@angular/material";
+import { MatSnackBar, MatSnackBarConfig, MatSnackBarModule } from "@angular/material/snack-bar";
 
 class MockMatSnackBar {
   open(message: string, action?: string, config?: MatSnackBarConfig) {}

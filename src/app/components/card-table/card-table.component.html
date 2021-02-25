@@ -54,7 +54,7 @@
         <td mat-cell *matCellDef="let element">
           <mat-icon
             class="delete-icon"
-            (click)="deleteCard(element)"
+            (click)="$event.stopPropagation(); deleteCard(element)"
           >delete</mat-icon>
         </td>
       </ng-container>

@@ -1,15 +1,14 @@
-FROM node:12.14-alpine as builder
-WORKDIR /app/ygo-card-ui
-COPY . .
-RUN npm config set strict-ssl false
+FROM node:12.14-alpine as build
+RUN mkdir -p /usr/ygo-card-ui
+WORKDIR /usr/ygo-card-ui
+COPY package.json .
 RUN npm install --unsafe-perm
-RUN npm rebuild node-sass
+COPY . .
 RUN npm run build
 
-FROM nginx:alpine
-RUN mkdir -m o+x /usr/share/nginx/html/assets
-COPY --from=builder /app/ygo-card-ui/dist/. /usr/share/nginx/html/assets/
-COPY --from=builder /app/ygo-card-ui/src/assets/. /usr/share/nginx/html/assets/
-COPY --from=builder /app/ygo-card-ui/docker/default.conf /etc/nginx/conf.d/default.conf
-COPY --from=builder /app/ygo-card-ui/docker/nginx.conf /etc/nginx/nginx.conf
-CMD ["nginx", "-g", "daemon off;"]
+FROM nginx:1.17.1-alpine
+COPY /docker/nginx.conf /etc/nginx/nginx.conf
+COPY /docker/default.conf /etc/nginx/conf.d/default.conf
+COPY /docker/routes.conf /etc/nginx/conf.d/routes/routes.conf
+COPY --from=build /usr/ygo-card-ui/dist/ygo-card-ui /usr/share/nginx/html
+EXPOSE 80

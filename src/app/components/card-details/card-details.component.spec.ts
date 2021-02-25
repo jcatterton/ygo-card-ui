@@ -4,13 +4,8 @@ import { CardDetailsComponent } from './card-details.component';
 import { ActivatedRoute, convertToParamMap, Router } from "@angular/router";
 import { of, throwError } from "rxjs";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
-import {
-  MAT_DIALOG_DATA,
-  MAT_DIALOG_SCROLL_STRATEGY,
-  MatDialog,
-  MatDialogRef,
-  MatSnackBarModule
-} from "@angular/material";
+import { MAT_DIALOG_DATA, MAT_DIALOG_SCROLL_STRATEGY, MatDialog, MatDialogRef } from "@angular/material/dialog";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { RouterTestingModule } from "@angular/router/testing";
 import { MockCardService, MockMatDialog, MockSnackBarService } from "../../mocks/services";
 import { CardService} from "../../services/card/card.service";
