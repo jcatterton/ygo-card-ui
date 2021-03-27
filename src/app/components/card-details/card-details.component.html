@@ -24,7 +24,7 @@
           <td class="column-two">{{ extendedData?.get("Number") }}</td>
         </tr>
         <tr #cardType>
-          <td class="column-one">Serial:</td>
+          <td class="column-one">Card Type:</td>
           <td class="column-two">{{ extendedData?.get("Card Type") }}</td>
         </tr>
         <tr #attack *ngIf="extendedData?.get('MonsterType') !== undefined">
@@ -60,25 +60,25 @@
       <td class="label-column">Lowest Price</td>
       <td class="unlimited-column">{{ priceData?.get("Unlimited")?.lowPrice | currency}}</td>
       <td class="limited-column">{{ priceData?.get("Limited")?.lowPrice | currency }}</td>
-      <td class="first-edition-column">{{ priceData?.get("1st Edition")?.lowPrice }}</td>
+      <td class="first-edition-column">{{ priceData?.get("1st Edition")?.lowPrice | currency }}</td>
     </tr>
     <tr #midPriceRow>
       <td class="label-column">Mid Price</td>
       <td class="unlimited-column">{{ priceData?.get("Unlimited")?.midPrice | currency}}</td>
       <td class="limited-column">{{ priceData?.get("Limited")?.midPrice | currency }}</td>
-      <td class="first-edition-column">{{ priceData?.get("1st Edition")?.midPrice }}</td>
+      <td class="first-edition-column">{{ priceData?.get("1st Edition")?.midPrice | currency }}</td>
     </tr>
     <tr #highPriceRow>
-      <td class="label-column">Mid Price</td>
+      <td class="label-column">Highest Price</td>
       <td class="unlimited-column">{{ priceData?.get("Unlimited")?.highPrice | currency}}</td>
       <td class="limited-column">{{ priceData?.get("Limited")?.highPrice | currency }}</td>
-      <td class="first-edition-column">{{ priceData?.get("1st Edition")?.highPrice }}</td>
+      <td class="first-edition-column">{{ priceData?.get("1st Edition")?.highPrice | currency }}</td>
     </tr>
     <tr #marketPrice>
-      <td class="label-column">Mid Price</td>
+      <td class="label-column">Market Price</td>
       <td class="unlimited-column">{{ priceData?.get("Unlimited")?.marketPrice | currency}}</td>
       <td class="limited-column">{{ priceData?.get("Limited")?.marketPrice | currency }}</td>
-      <td class="first-edition-column">{{ priceData?.get("1st Edition")?.marketPrice }}</td>
+      <td class="first-edition-column">{{ priceData?.get("1st Edition")?.marketPrice | currency }}</td>
     </tr>
   </table>
 </mat-card>
